@@ -110,7 +110,7 @@ void zmq::epoll_t::rm_fd (handle_t handle_)
     check_thread ();
     poll_entry_t *pe = static_cast<poll_entry_t *> (handle_);
     const int rc = epoll_ctl (_epoll_fd, EPOLL_CTL_DEL, pe->fd, &pe->ev);
-    errno_assert (rc != -1);
+    //errno_assert (rc != -1);
     pe->fd = retired_fd;
     _retired.push_back (pe);
 
